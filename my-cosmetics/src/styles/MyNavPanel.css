@@ -1,0 +1,34 @@
+.navitems {
+    background: hotpink;
+		height: 30pt;
+    padding: 5pt;
+    margin: 0%;
+    justify-content: center;
+    display: flex;
+}
+
+.item {
+    margin-left: 15pt;
+    margin-right: 15pt;
+    list-style-type: none;
+		padding: 8px 0;
+    font: bold small-caps 16px/18px couriernew;
+    color: lightseagreen;
+		position: relative;
+}
+
+.item a:hover {
+    background: #3dd349;
+    color: white;
+}
+
+.item a:active {
+    color: #f00; /* Цвет активной ссылки */
+}
+
+.itemmark {
+  list-style-type: circle; 
+  margin-left: 15pt;
+  margin-right: 15pt;
+  padding: 6px 0;
+}

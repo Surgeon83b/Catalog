@@ -1,0 +1,5 @@
+.RItem {
+    background-color: lightpink;
+    display: flex;
+    max-width: 320pt;
+}

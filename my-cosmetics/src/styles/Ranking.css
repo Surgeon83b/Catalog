@@ -1,0 +1,10 @@
+.sec12 {
+  display: flex; 
+  flex-direction: column;
+}
+
+.secondflex {
+  display: flex; 
+  justify-content: stretch;
+  height: 70%;
+}

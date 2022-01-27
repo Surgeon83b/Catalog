@@ -1,0 +1,14 @@
+textarea.ADDtext {
+  background-color: white;
+}
+textarea.ADDname {
+  background-color: paleturquoise;
+}
+
+
+textarea.SHOWname {
+  background-color: orange;
+}
+textarea.SHOWtext {
+  background-color: white;
+}

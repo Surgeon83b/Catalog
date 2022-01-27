@@ -1,0 +1,5 @@
+.secondflex {
+  display: flex; 
+  justify-content: stretch;
+  height: 70%;
+}

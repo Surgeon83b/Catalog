@@ -1,0 +1,36 @@
+img {
+  background: rgb(235, 231, 233);
+  width: 100pt;
+  height: 150pt;
+  border: 2pt dotted orange;
+}
+
+img:hover {
+  background: #3dd349; /* Цвет фона под картинкой */ 
+}
+
+img:active {
+  background: #5cbbe0; /* Цвет фона под картинкой */ 
+}
+
+p.caption {
+  text-align: center;
+  background: rgb(172, 167, 169);
+  color: rgba(12, 12, 12, 0.925);
+  margin-top: -3pt;
+  width: 100pt;
+}
+
+.new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5pt;
+  margin-left: 15pt;
+  border: none;
+}
+
+.Rank {
+  display: flex;
+  flex-direction: row;  
+}
