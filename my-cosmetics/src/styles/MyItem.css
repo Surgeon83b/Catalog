@@ -18,7 +18,10 @@ p.caption {
   background: rgb(172, 167, 169);
   color: rgba(12, 12, 12, 0.925);
   margin-top: -3pt;
+  padding: 3pt;
   width: 100pt;
+  word-wrap: break-word;
+  height: 50pt;
 }
 
 .new {

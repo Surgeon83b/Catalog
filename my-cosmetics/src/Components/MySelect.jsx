@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const selChange = (value, selSetter, setForItemsPP) => {
-  selSetter(value);
-  setForItemsPP(value);
-}
+export default function MySelect({ opt, setIPPaP, iPP }) {
+  const [selectedOption, setSelectedOption] = useState(iPP);
 
-export default function MySelect({ opt, set }) {
-  const [selectedOption, setSelectedOption] = useState(opt[0].value);
+  useEffect(() => {
+    setSelectedOption(iPP)
+  }, [])
+
+  const selChange = (value) => {
+    setSelectedOption(value);
+    setIPPaP(value);
+  }
+
   return (
     <select
       name='itemsPerPage'
       id='ipp'
       value={selectedOption}
-      onChange={e => selChange(e.target.value, setSelectedOption, set)} >
+      onChange={e => selChange(e.target.value)} >
       {opt.map((o) => <option key={o.value} value={o.value}>{o.name}</option>)}
     </select>
   )

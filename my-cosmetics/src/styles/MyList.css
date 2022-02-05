@@ -1,17 +1,22 @@
 .link {
-  align-content: left;
-  background-color: palegreen;
+  align-content: center;
+  background-color: yellow;
   display: flex;
   margin-top: 3pt;
-  color: white;
-  max-width: fit-content;
+  max-width: 90%;
+  font-weight: bolder;
 }
 
 ol.leftList:first-child {
-  background-color: coral;
+  background-color: darksalmon;
   align-content: center;
 }
 
 ul.leftList:first-child {
   background-color: rgb(143, 236, 240);
+}
+
+.leftlist {
+  background-color: seashell;
+  align-items: center;
 }

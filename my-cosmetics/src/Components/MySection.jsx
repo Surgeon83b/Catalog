@@ -2,61 +2,61 @@ import React, { useState, useEffect } from 'react';
 import MyItem from './MyItem.jsx';
 import MySelect from './MySelect.jsx';
 import '../styles/MySection.css';
-import {getPagesCount, getPagesArray} from '../utils/pages.js'
+import { getPagesCount, getPagesArray } from '../utils/pages.js'
 
-export default function MySection({ name, opt, clname, isDef }) {
- 
-  const [list, setList] = useState([]);
-  const [itemsPP, setItemsPP] = useState(opt[0].value);
-  const [pagesCount, setPagesCount] = useState(1)
-  const [pagesArray, setPagesArray] = useState([1]);
+export default function MySection({ name, list, opt, clname, isDef, from }) {
+
+  // const [iPPaPC, setIPPaPC] = useState({ iPP: opt[0].value, pC: 7 })
+  const [iPPaPC, setIPPaPC] = useState({})
+  const [pagesArray, setPagesArray] = useState(getPagesArray(1));
   const [activePage, setActivePage] = useState(1);
+  const [curMas, setCurMas] = useState([]);
 
-  console.log(pagesCount)
-  const getData = (url) => {
-    fetch(url,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      })
-      .then(function (response) {
-        console.log(response)
-        return response.json();
-      })
-      .then(function (myJson) {
-        console.log(myJson);
-        setList(myJson);
-      })
+  const setIPPandPC = (val) => {
+    setIPPaPC({ iPP: val, pC: getPagesCount(list.length, val) })
+    setActivePage(1)
   }
 
-  let mas = Array.from(list);
-  mas = mas.slice((activePage - 1) * itemsPP, itemsPP);
-  // alert('ap', activePage)
+  console.log('listinMySection', list)
+  
 
   useEffect(() => {
-    getData('./Data.json')
-    setPagesCount(getPagesCount(list.length, itemsPP))
-    setPagesArray(getPagesArray(pagesCount))
-  }, [itemsPP])
+    setPagesArray(getPagesArray(iPPaPC.pC))
+  }, [iPPaPC.pC])
 
-console.log(list)
+  useEffect(() => {
+    setIPPaPC({ iPP: list.length, pC: 1});
+  }, [list])
+
+  useEffect(() => {
+    let mas = Array.from(list)
+    if (from !== "Ranking")
+      mas = mas.slice((activePage - 1) * iPPaPC.iPP, activePage * iPPaPC.iPP)
+    else {
+      mas = mas.slice((activePage - 1) * iPPaPC.iPP, activePage * iPPaPC.iPP)
+    }
+
+    setCurMas(mas)
+  }, [activePage, iPPaPC, list])
+
+  console.log(curMas)
+  console.log(iPPaPC.iPP)
   return (
     <>
-      {list &&
-        <section className="sec1">
-          <h3 align="left">{name}<hr align="left"></hr></h3>
-          <section className={clname}>
-            {mas.map(({ id, capt, imgn, info }) => <MyItem key={id} id={id} caption={capt} imgname={imgn} isDef={isDef} info={info} />)}
-          </section>
-          <MySelect opt={opt} set={setItemsPP} />
-          <div className='pageWrapper'>
+      <section className="sec1">
+        <h3 align="left">{name}<hr align="left"></hr></h3>
 
-            {pagesArray.map(page => <span key={page} className={page == activePage ? 'page page__current' : 'page'} title={page} onClick={(e) => setActivePage(e.target.title)}>{page}</span>)}
-          </div>
+        <section className={clname}>
+          {curMas.map(({ id, capt, imgn, info }) => <MyItem key={id} id={id} caption={capt} imgname={imgn} isDef={isDef} info={info} from={from} />)}
         </section>
-      }
+
+        <MySelect opt={opt} setIPPaP={setIPPandPC} iPP={iPPaPC.iPP} />
+        <div className='pageWrapper'>
+          {pagesArray.map(page => <span id={page} key={page} className={page == activePage ? 'page page__current' : 'page'} title={page} onClick={(e) => setActivePage(e.target.title)}>{page}</span>)}
+        </div>
+      </section>
     </>
   )
 }
+
+/* <MySelect opt={opt} setP={setPC} setI={setIPP} len={list.length} /> */

@@ -17,7 +17,7 @@ export default function Base(props) {
     <>
       <Timer />
       <section className="secondflex">
-        <LeftPanel dataUrl={dUrl} />
+        <LeftPanel rerender={props.rerender} dataUrl={dUrl} />
         {props.add}
       </section>
     </>

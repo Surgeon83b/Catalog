@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter path='/'>
-        <MyNavPanel />
+        
         <AppRouter />
       </BrowserRouter>
     </div>

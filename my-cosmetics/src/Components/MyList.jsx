@@ -6,14 +6,15 @@ import '../styles/MyList.css';
 
 import RateItem from './RateItem.jsx';
 
-export default function MyList({ name, type, list }) {
+export default function MyList({ name, type, list, rank }) {
+  
   switch (type) {
     case "ol":
       return (
-          <ol className="leftList">
-            <RateItem item={name} />
-            {list.map((item, index) => <Link className='link' to={`/pages/AboutItem/${index + 1}`} key={index} item={item.capt} ><RateItem key={item} item={item.capt.slice(0, 30) + '...'} /></Link>)}
-          </ol>
+        <ol className="leftList">
+          <RateItem item={name} />
+          {list.map((item, index) => <li><Link className='link' to={`/pages/AboutItem/${item.id}`} key={item.id} item={item.capt} ><RateItem key={item} item={item.capt.slice(0, 30) + '...'} /><span style={{ display: "inline-flex" }}>{'   ' + rank[index]?.rank}</span></Link></li>)}
+        </ol>
       )
     case "ul":
       return (

@@ -1,5 +1,7 @@
 .RItem {
-    background-color: lightpink;
     display: flex;
     max-width: 320pt;
+    width: 85%;
+    align-items: center;
+    border-style: outset;
 }

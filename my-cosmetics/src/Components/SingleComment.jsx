@@ -4,7 +4,6 @@ import MyTextarea from './MyTextarea';
 export default function SingleComment({ id, name, text, isShowedButton, set }) {
   const [_name, set_Name] = useState('');
   const [_text, set_Text] = useState('');
-  const [_id, set_Id] = useState(id);
   let typeOf = isShowedButton ? 'ADD' : 'SHOW';
 
   const getName = (nam) => {
@@ -16,17 +15,18 @@ export default function SingleComment({ id, name, text, isShowedButton, set }) {
 
   const addToLocalStorage = (e) => {
     e.preventDefault();
-    if (JSON.parse(localStorage.getItem(_id)) === null) {
-      let list = [{ name: '⛹ ' + _name, text: _text }];
-      localStorage.setItem(_id, JSON.stringify(list));
+    console.log('Add', _name)
+    let list = [];
+    if (JSON.parse(localStorage.getItem(id)) === null) {
+      list = [{ name: '⛹ ' + _name, text: _text }];
     } else {
-      let list = JSON.parse(localStorage.getItem(_id));
+      list = JSON.parse(localStorage.getItem(id));
       const newComm = { name: '⛹ ' + _name, text: _text };
       list.push(newComm);
-      localStorage.setItem(_id, JSON.stringify(list));
-
-      set(JSON.parse(localStorage.getItem(_id)));
     }
+    localStorage.setItem(id, JSON.stringify(list));
+    set(JSON.parse(localStorage.getItem(id)));
+    console.log(localStorage.getItem(id))
   }
 
   return (

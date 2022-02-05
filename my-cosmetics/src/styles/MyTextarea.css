@@ -12,3 +12,8 @@ textarea.SHOWname {
 textarea.SHOWtext {
   background-color: white;
 }
+
+textarea {
+  resize: none;
+  height: 20px;
+}

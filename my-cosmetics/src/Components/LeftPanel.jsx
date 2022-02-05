@@ -4,32 +4,33 @@ import MyList from './MyList';
 
 const news = ["Мобильное приложение Mirror Me"];
 
-export default function LeftPanel({ dataUrl }) {
+export default function LeftPanel({ list, dataUrl }) {
 
-  const getData = (url) => {
-    fetch(url,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        setList1(myJson)
-      })
-  }
-  const [list1, setList1] = useState([]);
+  const [sortedArr, setSortedArr] = useState([])
+  const [sortedList, setSortedList] = useState([])
+
   useEffect(() => {
-    getData(dataUrl)
-  }, []);
+    let mas = JSON.parse(localStorage.getItem("ranking"));
+    setSortedArr(mas.sort((a, b) => b.rank - a.rank))
+    console.log('LP', sortedArr)
+  }, [list])
+
+  useEffect(() => {
+    if (list.length && sortedArr.length) {
+      let sortedL = [];
+      for (let index = 0; index < list.length; index++) {
+        sortedL.push(list.find(item => item.id == sortedArr[index].id))
+      }
+      setSortedList(sortedL)
+    }
+  }, [sortedArr, list])
+
+  console.log('sorted', sortedList)
 
   return (
     <section className="leftcol">
-      {list1 && <MyList name="Рейтинг средств" type="ol" list={list1}></MyList>}
-      <MyList name="Новости" type="ul" list={news}></MyList>
+      {sortedList.length && <MyList name="Рейтинг средств" type="ol" list={sortedList} rank={sortedArr}></MyList>}
+      {/* <MyList name="Новости" type="ul" list={news}></MyList>*/}
     </section>
   )
 }
