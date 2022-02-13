@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import AppRouter from './Components/AppRouter';
-import MyNavPanel from './Components/MyNavPanel';
+import { getData, setRankMas } from './utils/pages';
+import { MyContext } from './context/MyContext';
+import { setInitRank } from './utils/common';
 
 function App() {
+
+  const [list, setList] = useState([]);
+  useEffect(() => {
+    getData('Data.json', setList);
+  }, [])
+
+  useEffect(() => {
+    setInitRank(list);
+   // console.log('ls-App', JSON.stringify(setRankMas(list.length)))
+
+  }, [list])
+
+  console.log('App', list);
+
   return (
-    <div className="App">
-      <BrowserRouter path='/'>
-        
-        <AppRouter />
-      </BrowserRouter>
-    </div>
+    <MyContext.Provider value={[list, setList]} >
+      <div className="App">
+        <BrowserRouter path='/'>
+          <AppRouter />
+        </BrowserRouter>
+      </div>
+    </MyContext.Provider >
   );
 }
 

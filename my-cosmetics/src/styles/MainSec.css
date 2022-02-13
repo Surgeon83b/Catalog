@@ -1,10 +1,10 @@
 .mainsec {
   display: flex;    
   flex-direction: column;
-  max-width: 60%;
+  max-width: 80%;
   margin-left: 20pt;
   margin-top: 5pt;
-  background-color: pink;
+  background-color: #E5E5E5;;
   padding: 5pt;
   align-items: center;
 }

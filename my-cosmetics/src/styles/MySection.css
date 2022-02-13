@@ -1,6 +1,7 @@
 .pageWrapper {
-  margin-top: 0px;
-  display: flex;
+  margin-top: 20px;
+  justify-items: center;
+  align-items: center;
 }
 
 .page {
@@ -10,7 +11,7 @@
 }
 
 .page__current {
-  border: 2px solid orange;
+  border: 2px solid hotpink;
   font-weight: bold;
 }
 
@@ -33,6 +34,12 @@ section.sec1 {
 }
 
 #ipp {
-  width: 30pt;
-  background-color: chartreuse;
+  width: 40px;
+  height: 20px;
+  background-color: white;
+}
+
+.cont {
+  font-size: 24px;
+
 }

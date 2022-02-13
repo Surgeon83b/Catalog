@@ -1,34 +1,48 @@
 .navitems {
-    background: hotpink;
-		height: 30pt;
-    padding: 5pt;
+    background: white;
+		height: 50px;
+    padding: 5px;
     margin: 0%;
     justify-content: center;
+    vertical-align: middle;
     display: flex;
 }
 
 .item {
-    margin-left: 15pt;
-    margin-right: 15pt;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 5px;
     list-style-type: none;
 		padding: 8px 0;
-    font: bold small-caps 16px/18px couriernew;
-    color: lightseagreen;
+    font: bold 18px;
 		position: relative;
 }
 
 .item a:hover {
-    background: #3dd349;
+    background: hotpink;
     color: white;
 }
 
 .item a:active {
     color: #f00; /* Цвет активной ссылки */
+    background: hotpink;
 }
 
 .itemmark {
-  list-style-type: circle; 
-  margin-left: 15pt;
-  margin-right: 15pt;
+  list-style-type: none; 
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
   padding: 6px 0;
+}
+.myLink {
+  text-decoration: none;
+  padding: 7px;
+}
+
+.active {
+  padding: 6pt;
+  background: hotpink;
+  text-decoration: none;
+  font-weight: bolder;
 }

@@ -1,5 +1,6 @@
 .descr {
-  margin: 8pt;
-  width: 50%;
+  margin: 8px;
+  max-width: 70%;
   text-align: justify;
+  margin-top: 10%;
 }

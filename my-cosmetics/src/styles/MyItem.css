@@ -2,7 +2,7 @@ img {
   background: rgb(235, 231, 233);
   width: 100pt;
   height: 150pt;
-  border: 2pt dotted orange;
+  border: 2pt orange;
 }
 
 img:hover {
@@ -36,4 +36,5 @@ p.caption {
 .Rank {
   display: flex;
   flex-direction: row;  
+  max-width: 70%;
 }

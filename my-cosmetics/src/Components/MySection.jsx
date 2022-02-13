@@ -6,7 +6,6 @@ import { getPagesCount, getPagesArray } from '../utils/pages.js'
 
 export default function MySection({ name, list, opt, clname, isDef, from }) {
 
-  // const [iPPaPC, setIPPaPC] = useState({ iPP: opt[0].value, pC: 7 })
   const [iPPaPC, setIPPaPC] = useState({})
   const [pagesArray, setPagesArray] = useState(getPagesArray(1));
   const [activePage, setActivePage] = useState(1);
@@ -17,15 +16,12 @@ export default function MySection({ name, list, opt, clname, isDef, from }) {
     setActivePage(1)
   }
 
-  console.log('listinMySection', list)
-  
-
   useEffect(() => {
     setPagesArray(getPagesArray(iPPaPC.pC))
   }, [iPPaPC.pC])
 
   useEffect(() => {
-    setIPPaPC({ iPP: list.length, pC: 1});
+    setIPPaPC({ iPP: list.length, pC: 1 });
   }, [list])
 
   useEffect(() => {
@@ -35,19 +31,16 @@ export default function MySection({ name, list, opt, clname, isDef, from }) {
     else {
       mas = mas.slice((activePage - 1) * iPPaPC.iPP, activePage * iPPaPC.iPP)
     }
-
     setCurMas(mas)
   }, [activePage, iPPaPC, list])
 
-  console.log(curMas)
-  console.log(iPPaPC.iPP)
   return (
     <>
       <section className="sec1">
         <h3 align="left">{name}<hr align="left"></hr></h3>
 
         <section className={clname}>
-          {curMas.map(({ id, capt, imgn, info }) => <MyItem key={id} id={id} caption={capt} imgname={imgn} isDef={isDef} info={info} from={from} />)}
+          {curMas?.map(({ id, capt, imgn, info }) => <MyItem key={id} id={id} caption={capt} imgname={imgn} isDef={isDef} info={info} from={from} />)}
         </section>
 
         <MySelect opt={opt} setIPPaP={setIPPandPC} iPP={iPPaPC.iPP} />
@@ -58,5 +51,3 @@ export default function MySection({ name, list, opt, clname, isDef, from }) {
     </>
   )
 }
-
-/* <MySelect opt={opt} setP={setPC} setI={setIPP} len={list.length} /> */

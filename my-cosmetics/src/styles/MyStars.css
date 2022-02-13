@@ -21,21 +21,25 @@
 	content: '★';
 }
 .rating-area > input:checked ~ label {
-	color: gold;
+	color: hotpink;
 	text-shadow: 1px 1px #c60;
 }
 .rating-area:not(:checked) > label:hover,
 .rating-area:not(:checked) > label:hover ~ label {
-	color: gold;
+	color: hotpink;
 }
 .rating-area > input:checked + label:hover,
 .rating-area > input:checked + label:hover ~ label,
 .rating-area > input:checked ~ label:hover,
 .rating-area > input:checked ~ label:hover ~ label,
 .rating-area > label:hover ~ input:checked ~ label {
-	color: gold ;
+	color: hotpink ;
 	text-shadow: 1px 1px goldenrod;
 }
 .rate-area > label:active {
 	position: relative;
+}
+
+.rating-area p {
+	font-size: 12px;
 }

@@ -10,7 +10,7 @@ export default function MyItem({ id, caption, imgname, isDef, info, from, nRate 
 
   const [capt, setCapt] = useState('');
   const [rate, setRate] = useState(0);
-  
+
   const newRate = (rate) => {
     setRate(rate)
   }
@@ -23,14 +23,10 @@ export default function MyItem({ id, caption, imgname, isDef, info, from, nRate 
   useEffect(() => {
     if (localStorage[`rate${id}`]) {
       setRate(avg(JSON.parse(localStorage[`rate${id}`])))
-      //  let mas = JSON.parse(localStorage['ranking']);
-      //  localStorage.setItem['ranking'](mas.map((item) => item.id == id ? {...item, rank: avg(JSON.parse(localStorage[`rate${id}`]))} : item))
-      //  console.log(JSON.parse(localStorage[`rate${id}`]))
     }
     else {
       setRate(0);
     }
-
   }, [id])
 
   useEffect(() => {
@@ -39,6 +35,7 @@ export default function MyItem({ id, caption, imgname, isDef, info, from, nRate 
     //   setLofR(lofR?.map((item) => item.id == id ? {...item, rank: rate} : item)) 
   }, [rate, id])
 
+  console.log('id-Rate', id, rate)
   return (
     <div className="Rank">
       <div className='new'>

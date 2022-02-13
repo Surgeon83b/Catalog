@@ -16,6 +16,13 @@ export const getPagesArray = (totalPages) => {
   return result;
 }
 
+export const getArr = (num) => {
+  let arr = [];
+  for (let i = 0; i < num; i++)
+    arr[i] = { id: i + 1, rank: 0 }
+  return arr;
+}
+
 export async function getData(url, set) {
   fetch(url,
     {
@@ -42,34 +49,17 @@ export const avg = (arr) => {
 export const setRankMas = (length) => {
   const res = [];
   for (let index = 0; index < length; index++) {
-    res[index]={id: index+1, rank: 0}
+    res[index] = { id: index + 1, rank: 0 }
   }
   return res;
 }
-
-export const options = [
-  {
-    name: '1',
-    value: 1,
-  },
-  {
-    name: '2',
-    value: 2,
-  },
-  {
-    name: '3',
-    value: 3,
-  },
-  {
-    name: '4',
-    value: 4,
-  },
-  {
-    name: '5',
-    value: 5
-  },
-  {
-    name: '6',
-    value: 6
-  }
-]
+/*
+let dUrl;
+  switch (from) {
+    case 'Home': dUrl = './Data.json'; break;
+    case 'AboutItem': dUrl = '/Data.json'; break;
+    case 'Ranking': dUrl = '../Data.json'; break;
+    case 'Contacts': dUrl = '/Data.json'; break;
+    default:
+      dUrl = 'Data.json';
+  }*/
