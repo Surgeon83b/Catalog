@@ -3,6 +3,6 @@ import '../styles/RateItem.css';
 
 export default function RateItem({ item }) {
   return (
-    <li className="RItem">{item}</li>
+    <div className="RItem">{item}</div>
   )
 }

@@ -39,16 +39,10 @@ export default function SingleComment({ id, name, text, isShowedButton, set }) {
   }
 
   return (
-    <form class="newComment" onSubmit={(e) => addToLocalStorage(e)}>
+    <form className="newComment" onSubmit={(e) => addToLocalStorage(e)}>
       <MyTextarea isFor='name' type={typeOf} cols='60' rows='1' value={clear ? '' : _name} placeholder='⛹ Ваше имя' get={getName} />
       <MyTextarea isFor='text' type={typeOf} cols='60' rows='2' value={clear ? '' : _text} placeholder='Оставьте ваш отзыв' get={getText} />
       {isShowedButton && _name && _text && <input type="submit" align="right" value="Отправить" />}
     </form>
   )
 }
-
-{/* <form onSubmit={(e) => addToLocalStorage(e)}>
-      <MyTextarea isFor='name' type={typeOf} name={name} cols='60' rows='1' valu={clear ? '' : name} clear={clear} placeholder='⛹ Ваше имя' get={getName} />
-      <MyTextarea isFor='text' type={typeOf} name={text} cols='60' rows='2' valu={clear ? '' : text} clear={clear} placeholder='Оставьте ваш отзыв' get={getText} />
-      {isShowedButton && <input type="submit" align="right" value="Отправить" />}
-    </form> */}

@@ -10,10 +10,6 @@ export default function MainSec({ list, from, isDef }) {
 	const [listLength, setListLength] = useState(0);
 	const [listofRank, setListofRank] = useState([{}]);
 
-	const setLofR = (mas) => {
-		setListofRank(mas);
-	}
-
 	useEffect(() => {
 		setListLength(list?.length)
 	}, [list])

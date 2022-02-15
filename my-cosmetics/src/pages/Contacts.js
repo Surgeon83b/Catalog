@@ -17,7 +17,8 @@ export default function Contacts() {
     <>
       <MyNavPanel visible={false} />
       <section className='contacts'>
-        <p className="cont" >Контакты<hr align="left"></hr></p>
+        <span className="cont" >Контакты<hr align="left"></hr></span>
+        
         <h4 align="left" style={{ fontSize: "18px" }}>Оставьте ваш отзыв о нашем портале</h4>
         <NewComment getList={getList} />
 

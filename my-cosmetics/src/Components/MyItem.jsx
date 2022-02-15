@@ -31,7 +31,7 @@ export default function MyItem({ id, caption, imgname, isDef, info, from, nRate 
 
   useEffect(() => {
     if ((from !== "Ranking") && (from !== "Home"))
-      nRate(id)
+      nRate(rate)
     //   setLofR(lofR?.map((item) => item.id == id ? {...item, rank: rate} : item)) 
   }, [rate, id])
 

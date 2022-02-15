@@ -32,7 +32,7 @@ export default function MySection({ name, list, opt, clname, isDef, from }) {
       mas = mas.slice((activePage - 1) * iPPaPC.iPP, activePage * iPPaPC.iPP)
     }
     setCurMas(mas)
-  }, [activePage, iPPaPC, list])
+  }, [activePage, iPPaPC, list, from])
 
   return (
     <>

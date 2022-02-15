@@ -32,7 +32,7 @@ export const NewComment = ({ getList }) => {
   }
 
   return (
-    <form class="newComment" onSubmit={(e) => addContacts(e)}>
+    <form className="newComment" onSubmit={(e) => addContacts(e)}>
       <MyTextarea name="yourname"
         type='ADD'
         isFor='name'

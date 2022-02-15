@@ -36,3 +36,21 @@ export const setInitRank = (list) => {
     localStorage.setItem("ranking", mas)
   }
 }
+
+export const getSortedList = (list, sortedArr) => {
+  if (list?.length && sortedArr.length) {
+    let sortedL = [];
+    for (let index = 0; index < list.length; index++) {
+      sortedL.push(list?.find(item => item?.id === sortedArr[index]?.id))
+    }
+    return sortedL;
+  }
+}
+
+export const getSortedArr = (list) => {
+  let mas = JSON.parse(localStorage.getItem("ranking"));
+  if (mas.length)
+    return mas.sort((a, b) => b.rank - a.rank)
+  else
+    return list;
+}

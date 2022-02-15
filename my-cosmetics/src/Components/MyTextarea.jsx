@@ -10,7 +10,7 @@ export default function MyTextarea({ type = 'ADD', isFor, placeholder, cols, row
 
   return (
     <>
-      <textarea disabled={!(type === 'ADD')} className={taType} onChange={(e) => setNew(e)} cols={cols} rows={rows} placeholder={placeholder} value={value} defaultValue=''></textarea><br></br>
+      <textarea disabled={!(type === 'ADD')} className={taType} onChange={(e) => setNew(e)} cols={cols} rows={rows} placeholder={placeholder} value={value}></textarea><br></br>
     </>
   )
 }

@@ -7,14 +7,14 @@ import { RouterUrl } from '../routes';
 
 export default function MyNavPanel({ foundList, toF, visible }) {
 
-  const [list, setList] = useContext(MyContext);
+  const list = useContext(MyContext);
   const [toFind, setToFind] = useState('');
 
   useEffect(() => {
-    if (toFind == '') {
+    if (toFind === '') {
       if (foundList) foundList(list)
     }
-  }, [toFind])
+  }, [toFind, foundList, list])
 
   const find = (val) => {
     setToFind(val);

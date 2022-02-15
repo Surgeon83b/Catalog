@@ -5,6 +5,7 @@ import SingleComment from '../Components/SingleComment';
 import LeftPanel from '../Components/LeftPanel';
 import MyNavPanel from '../Components/MyNavPanel';
 import ListofComments from '../Components/ListofComments';
+import { getSortedList, getSortedArr } from '../utils/common';
 
 import '../styles/Home.css';
 import '../styles/MySection.css';
@@ -19,37 +20,48 @@ export default function AboutItem() {
   }
 
   //const [list, setList] = useState(JSON.parse(localStorage.getItem(itID)));
-  const [list, setList] = useState(tlist);
-  const [list1, setList1] = useContext(MyContext);
+  const [listOfComm, setListOfComm] = useState(tlist);
+  const list1 = useContext(MyContext);
   const [curObj, setCurObj] = useState({});
   const [newRate, setNewRate] = useState(false);
+  const [sortedArr, setSortedArr] = useState([]);
+  const [sortedList, setSortedList] = useState([]);
+
+  useEffect(() => {
+    setSortedArr(getSortedArr(list1));
+  }, [list1, newRate])
+
+  useEffect(() => {
+    setSortedList(getSortedList(list1, sortedArr));
+  }, [sortedArr, list1, newRate])
 
   const nRate = (id) => {
     setNewRate(id)
   }
 
+  console.log('newRateinAbout', newRate)
   useEffect(() => {
-    setList(JSON.parse(localStorage.getItem(itID)))
-  }, [localStorage.getItem(itID)])
+    setListOfComm(JSON.parse(localStorage.getItem(itID)))
+  }, [itID])
 
   useEffect(() => {
-    setCurObj(list1.find((elem) => elem.id == itID))
+    setCurObj(list1?.find((elem) => elem.id == itID))
   }, [list1, itID]);
 
-  console.log('listFromAbout', list)
+  console.log('listFromAbout', listOfComm)
 
   return (
     <>
       <MyNavPanel visible={false} />
       <section className="secondflex">
-        <LeftPanel list={list1} />
+        <LeftPanel sortedList={sortedList} sortedArr={sortedArr}/>
         <section className="mainsec">
           {curObj && <MyItem caption={curObj.capt} imgname={curObj.imgn} isDef info={curObj.info} id={itID} nRate={nRate} />}
           <p><b>{"Оставьте ваше мнение относительно этого продукта"}</b></p>
-          <SingleComment id={itID} name="" text="" isShowedButton={true} set={setList} />
+          <SingleComment id={itID} name="" text="" isShowedButton={true} set={setListOfComm} />
 
           <p>{"Список комментариев"}</p>
-          <ListofComments list={list} isShowedButton={false} id={itID} />
+          <ListofComments list={listOfComm} isShowedButton={false} id={itID} />
         </section>
       </section>
     </>

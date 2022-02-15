@@ -5,7 +5,7 @@ export default function MySelect({ opt, setIPPaP, iPP }) {
 
   useEffect(() => {
     setSelectedOption(iPP)
-  }, [])
+  }, [iPP])
 
   const selChange = (value) => {
     setSelectedOption(value);
@@ -17,12 +17,16 @@ export default function MySelect({ opt, setIPPaP, iPP }) {
       <select
         name='itemsPerPage'
         id='ipp'
-        defaultValue={opt[opt.length - 1]?.value}
+        
         value={selectedOption}
         onChange={e => selChange(e.target.value)} >
-        {opt.map((o) => <option key={o.value} value={o.value} selected={o.value == opt.length ? "selected" : null}>{o.name}</option>)}
+        {opt.map((o) => <option key={o.value} value={o.value} >{o.name}</option>)}
       </select>
       <p style={{margin:'0 0 0 6px'}}> на странице</p>
     </div>
   )
 }
+
+// value={selectedOption}
+//defaultValue={opt[opt.length - 1]?.value}
+//selected={o.value === opt.length ? "selected" : null}

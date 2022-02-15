@@ -13,7 +13,7 @@ export default function MyList({ name, type, list, rank }) {
       return (
         <ul className="leftList">
           <li className="listCaption" >{name}</li>
-          {list.map((item, index) => <li><Link className='link' to={`/pages/AboutItem/${item.id}`} key={item.id} item={item.capt} >
+          {list.map((item, index) => <li key={item.id}><Link className='link' to={`/pages/AboutItem/${item.id}`} key={item.id} item={item.capt} >
             <RateItem key={item} item={item.capt.slice(0, 36) + '...'} />
             <span style={{ display: "inline-flex", margin: "3pt", color: "hotpink" }}>{rank[index].rank + ' ★'}</span>
           </Link>
