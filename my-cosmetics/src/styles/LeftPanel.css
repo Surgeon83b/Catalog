@@ -1,0 +1,20 @@
+.leftcol {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  justify-content: flex-start;
+  max-width: max-content;
+  min-width: 300px;
+  margin: 10px 4px 10px 30px;
+  background-color: white;
+  height: fit-content;
+}
+
+.litemtop {
+  display: flex;
+  background: rgb(73, 243, 50);
+  min-height: 30px;
+  height: 50px;
+  list-style-type: none;
+  margin-bottom: 2px;
+}

@@ -1,0 +1,41 @@
+textarea.ADDtext {
+  background-color: white;
+  height: 50px;
+}
+textarea.ADDname {
+  background-color: white;
+}
+
+textarea.SHOWname {
+  background-color: hotpink;
+}
+textarea.SHOWtext {
+  background-color: white;
+  min-height: 50px;
+}
+
+textarea {
+  resize: none;
+  height: 20px;
+  padding: 6px 5px;
+  margin: -9px 0;
+  font-size: 14px;
+}
+
+.newComment {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0 0 3px;
+  justify-content: center;
+  width: 40%;
+}
+
+.newComment input {
+  align-self: flex-end;
+  width: 150px;
+  height: 34px;
+  background-color: hotpink;
+  font-size: 18px;
+  color: white;
+  font-family: Choco cooky;
+}
